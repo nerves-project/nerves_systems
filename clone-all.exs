@@ -22,7 +22,7 @@ defmodule Main do
 
     if File.dir?(dir) do
       IO.puts("Fetching #{dir}...")
-      {_, 0} = System.cmd("git", ["fetch"], cd: dir)
+      {_, 0} = System.cmd("git", ["fetch", "--prune"], cd: dir)
     else
       IO.puts("Cloning #{dir}...")
       {_, 0} = System.cmd("git", ["clone", url], cd: "src")
@@ -36,6 +36,7 @@ defmodule Main do
     dir = Path.join("src", checked_out_name)
     IO.puts("Switching to the '#{branch}' branch")
     {_, 0} = System.cmd("git", ["checkout", branch], cd: dir)
+    {_, 0} = System.cmd("git", ["merge", "--ff-only"], cd: dir)
   end
 
   def main() do
