@@ -1,40 +1,5 @@
 #!/usr/bin/env elixir
 
-defmodule ArchFixer do
-  def read_lines(input, output) do
-    case IO.read(input, :line) do
-      :eof ->
-        :ok
-
-      "BR2_TOOLCHAIN_EXTERNAL_URL=" <> _ = line ->
-        {arch, 0} = System.cmd("uname", ["-m"])
-        os_arch = "linux_" <> String.trim(arch)
-
-        line
-        |> String.replace("linux_x86_64", os_arch)
-        |> tap(&IO.write(output, &1))
-
-        read_lines(input, output)
-
-      line ->
-        IO.write(output, line)
-        read_lines(input, output)
-    end
-  end
-
-  def fix_toolchain_arch(dot_config_path) do
-    tmp = dot_config_path <> ".new"
-    {:ok, output} = File.open(tmp, [:write])
-
-    File.open(dot_config_path, [:read], fn input ->
-      ArchFixer.read_lines(input, output)
-    end)
-
-    File.close(output)
-    File.cp!(tmp, dot_config_path)
-  end
-end
-
 defmodule Main do
   def load_config() do
     {config, _} = Code.eval_file("config.exs")
@@ -58,8 +23,6 @@ defmodule Main do
         ],
         into: IO.stream()
       )
-
-    ArchFixer.fix_toolchain_arch(Path.join(out, ".config"))
   end
 
   def build({short_name, _url, _opts}) do

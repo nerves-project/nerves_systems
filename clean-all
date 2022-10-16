@@ -1,0 +1,11 @@
+#!/bin/sh
+
+output_dirs=$(find o -mindepth 1 -maxdepth 1)
+
+for dir in $output_dirs; do
+	echo "Cleaning $dir..."
+	cd $dir
+	rm -fr build images host target
+	cd ../..
+done
+
