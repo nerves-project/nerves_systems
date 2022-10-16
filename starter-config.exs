@@ -27,6 +27,8 @@
   systems: [
     {"rpi4", "git@github.com:nerves-project/nerves_system_rpi4", branch: "main"},
     {"rpi0", "git@github.com:nerves-project/nerves_system_rpi0"},
+    {"grisp2", "git@github.com:nerves-project/nerves_system_grisp2"},
+    {"mangopi_mq_pro", "git@github.com:fhunleth/nerves_system_mangopi_mq_pro"},
     {"bbb", "git@github.com:nerves-project/nerves_system_bbb"},
     {"rpi3", "git@github.com:nerves-project/nerves_system_rpi3"},
     {"rpi3a", "git@github.com:nerves-project/nerves_system_rpi3a"},
