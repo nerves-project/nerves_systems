@@ -13,7 +13,7 @@ sudo apt install git build-essential bc cmake cvs wget curl mercurial python3 py
 Install `asdf` and use it to install Erlang and Elixir:
 
 ```sh
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.1
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.0
 . $HOME/.asdf/asdf.sh
 vi ~/.bashrc
 # Add the  line to source asdf.sh to the end of your .bashrc
