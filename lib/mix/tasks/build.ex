@@ -12,10 +12,22 @@ defmodule Mix.Tasks.Ns.Build do
 
     Enum.each(systems, &config_buildroot/1)
 
-    systems
-    |> Enum.map(&build/1)
-    |> Enum.reject(fn result -> result == :ok end)
-    |> IO.inspect()
+    failed_builds =
+      systems
+      |> Enum.map(&build/1)
+      |> Enum.reject(fn result -> result == :ok end)
+
+    case failed_builds do
+      [] ->
+        :ok
+
+      _ ->
+        Enum.each(failed_builds, fn {:error, message} ->
+          Mix.Shell.IO.error(message)
+        end)
+
+        exit({:shutdown, 1})
+    end
   end
 
   defp normalize_system({_, _, _} = system), do: system
