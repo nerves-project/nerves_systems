@@ -32,4 +32,4 @@ nerves_systems-*.tar
 /src
 
 # Developer configuration.
-config.exs
+/config/config.exs
