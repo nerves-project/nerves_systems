@@ -37,11 +37,11 @@ mix local.rebar
 
 ## Configuration
 
-The configuration is kept in `config.exs`. To get started, copy the
-`starter-config.exs` to `config.exs`:
+The configuration is kept in `config/config.exs`. To get started, copy
+`config/starter-config.exs` to `config/config.exs`:
 
 ```sh
-cp starter-config.exs config.exs
+cp config/starter-config.exs config/config.exs
 ```
 
 Take a look at the `config.exs` and delete or add systems as needed. If you're

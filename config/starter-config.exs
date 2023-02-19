@@ -4,18 +4,19 @@
 # The scripts aren't smart, so if you change this and don't want to
 # think, run `rm -fr src o` to start fresh.
 #
-# Run `./clone-systems.exs` to download all of the systems to the
-# `src` directory.
+# Run `mix ns.clone` to download all of the systems to the `src` directory.
 
-%{
+import Config
+
+config :nerves_systems,
   # Git repository for nerves_system_br or the fork to use
   nerves_system_br: "git@github.com:nerves-project/nerves_system_br",
-  #
+
   # Systems options
   # 
   # Default branch to use when checking out systems
   default_system_branch: "main",
-  #
+
   # System specs
   #
   # {short_name, git_repository, options}
@@ -39,4 +40,3 @@
     {"vultr", "git@github.com:nerves-project/nerves_system_vultr"},
     {"npi_imx6ull", "git@github.com:fhunleth/nerves_system_npi_imx6ull"}
   ]
-}
