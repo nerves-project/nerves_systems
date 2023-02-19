@@ -1,4 +1,0 @@
-#!/bin/sh
-
-find src -mindepth 1 -maxdepth 1 -exec git -C "{}" pull --ff-only ";"
-

@@ -47,14 +47,14 @@ cp starter-config.exs config.exs
 Take a look at the `config.exs` and delete or add systems as needed. If you're
 just starting, delete all but one or two so that building doesn't take forever.
 
-Now that you have a configuration, call the `./clone-all` script to
+Now that you have a configuration, call the `ns.clone` mix task to
 download the systems to the `src` directory. 
 
 ```sh
-./clone-all
+mix ns.clone
 ```
 
-There's nothing magical about the `./clone-all` script, you could run `git
+There's nothing magical about the `ns.clone` task, you could run `git
 clone` manually if you want. The directory structure should look like this:
 
 ```text
@@ -79,15 +79,15 @@ If you're used to Buildroot, you may have a feel for when you can do
 incremental builds and when you can't. When in doubt, start over by deleting
 the output directory.
 
-The `build-all` script will run both steps.
+The `ns.build` mix task will run both steps.
 
 ```sh
-./build-all
+mix ns.build
 ```
 
 ### Hints
 
-1. If `build-all` fails, go to the failing output directory and run `make`.
+1. If `ns.build` fails, go to the failing output directory and run `make`.
 2. Run `make source` to download everything. Then run `make` and come back
    later.
 3. Downloads are stored in `~/.nerves/dl`
