@@ -48,7 +48,7 @@ Take a look at the `config.exs` and delete or add systems as needed. If you're
 just starting, delete all but one or two so that building doesn't take forever.
 
 Now that you have a configuration, call the `ns.clone` mix task to
-download the systems to the `src` directory. 
+download the systems to the `src` directory.
 
 ```sh
 mix ns.clone
@@ -99,9 +99,12 @@ mix ns.build
 After the system builds successfully, open up another terminal window. Build
 your Nerves project in this one. There are special environment variables that
 will tell the Nerves build system to use your custom-built system rather than
-the one referenced in the `mix.exs`. To load these variables in your
-environment, run:
+the one referenced in the `mix.exs`.
 
+To load these variables in your environment, first find the `nerves.env.sh`
+script in the output directory that corresponds to your Nerves project's target.
+Then run it in the terminal for your Nerves project. For example if your Nerves
+target is Raspberry Pi Zero, the script path may look like this:
 
 ```sh
 . ~/path/to/nerves_systems/o/rpi0/nerves-env.sh
