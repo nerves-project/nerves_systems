@@ -13,7 +13,7 @@ config :nerves_systems,
   nerves_system_br: "git@github.com:nerves-project/nerves_system_br",
 
   # Systems options
-  # 
+  #
   # Default branch to use when checking out systems
   default_system_branch: "main",
 
@@ -29,7 +29,7 @@ config :nerves_systems,
     {"rpi4", "git@github.com:nerves-project/nerves_system_rpi4", branch: "main"},
     {"rpi0", "git@github.com:nerves-project/nerves_system_rpi0"},
     {"grisp2", "git@github.com:nerves-project/nerves_system_grisp2"},
-    {"mangopi_mq_pro", "git@github.com:fhunleth/nerves_system_mangopi_mq_pro"},
+    {"mangopi_mq_pro", "git@github.com:nerves-project/nerves_system_mangopi_mq_pro"},
     {"bbb", "git@github.com:nerves-project/nerves_system_bbb"},
     {"rpi3", "git@github.com:nerves-project/nerves_system_rpi3"},
     {"rpi3a", "git@github.com:nerves-project/nerves_system_rpi3a"},
