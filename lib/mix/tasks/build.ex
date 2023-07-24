@@ -4,16 +4,26 @@ defmodule Mix.Tasks.Ns.Build do
 
   use Mix.Task
 
-  @systems Application.compile_env(:nerves_systems, :systems)
-
   @impl Mix.Task
   def run(_args) do
-    systems = Enum.map(@systems, &normalize_system/1)
+    systems = Application.get_env(:nerves_systems, :systems)
 
-    Enum.each(systems, &config_buildroot/1)
+    unless systems do
+      Mix.Shell.IO.error("""
+      No systems configured.
+
+      Copy config/starter-config.exs to config/config.exs and edit.
+      """)
+
+      exit({:shutdown, 1})
+    end
+
+    normalized_systems = Enum.map(systems, &normalize_system/1)
+
+    Enum.each(normalized_systems, &config_buildroot/1)
 
     failed_builds =
-      systems
+      normalized_systems
       |> Enum.map(&build/1)
       |> Enum.reject(fn result -> result == :ok end)
 
