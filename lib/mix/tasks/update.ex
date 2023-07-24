@@ -6,7 +6,10 @@ defmodule Mix.Tasks.Ns.Update do
 
   @impl Mix.Task
   def run(_args) do
+    File.mkdir_p!("src")
+
     File.ls!("src")
+    |> Enum.filter(fn short_name -> File.dir?("src/#{short_name}") end)
     |> Enum.each(fn short_name ->
       Mix.Shell.IO.info("Updating #{short_name}...")
       Mix.Shell.IO.cmd("git -C src/#{short_name} pull --ff-only")
