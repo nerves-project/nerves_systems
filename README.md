@@ -73,7 +73,7 @@ Building is a two step process:
 
 1. Turn the `nerves_defconfig` into a `.config` file in the output directory
    (`o/<system short name>`)
-2. Run `make` is `o/<system short name>`
+2. Run `make` in `o/<system short name>`
 
 If you're used to Buildroot, you may have a feel for when you can do
 incremental builds and when you can't. When in doubt, start over by deleting
