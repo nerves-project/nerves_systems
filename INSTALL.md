@@ -20,10 +20,10 @@ vi ~/.bashrc
 
 asdf plugin add erlang
 asdf plugin add elixir
-asdf install erlang 24.2
-asdf global erlang 24.2
-asdf install elixir 1.13.1-otp-24
-asdf global elixir 1.13.1-otp-24
+asdf install erlang 26.1
+asdf global erlang 26.1
+asdf install elixir 1.15.6-otp-26
+asdf global elixir 1.15.6-otp-26
 ```
 
 Install Elixir archives:
