@@ -41,7 +41,7 @@ defmodule Mix.Tasks.Ns.Clone do
       0 = Mix.Shell.IO.cmd("git fetch --prune", cd: dir)
     else
       Mix.Shell.IO.info("Cloning #{checked_out_name}...")
-      0 = Mix.Shell.IO.cmd("git clone #{url}", cd: "src")
+      0 = Mix.Shell.IO.cmd("git clone --recursive #{url}", cd: "src")
     end
   end
 
